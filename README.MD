@@ -1,3 +1,6 @@
+# Warning. 
+**It's still in the development, so the api of the library can be changed at any time**.
+
 ### What is this?
 - This is library which is created to recognize the text of the forms in the images.
 - It is based on the [Google Vision Api](https://cloud.google.com/vision/docs/), but can be used with any other OCR.
