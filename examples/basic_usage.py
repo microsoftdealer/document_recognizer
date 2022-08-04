@@ -44,7 +44,7 @@ def main() -> None:
     recognized_document = document_recognizer.recognize_document(
         image_path=BASE_DIR
         / "user_licenses"
-        / "4.jpg",  # pass photo here, see example in tests/data
+        / "1.jpg",  # pass photo here, see example in tests/data
         recognizer=recognizer,
         pre_processor_of_photo=pre_processor,
     )

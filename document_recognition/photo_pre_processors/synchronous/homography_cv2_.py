@@ -13,9 +13,11 @@ from document_recognition.template import Template
 
 def read_image_from_pathlike(image_path: PathLike) -> np.ndarray:
     if isinstance(image_path, (str, Path)):
-        image = cv2.imread(image_path)
+        image = cv2.imread(str(image_path))
     else:
         image = cv2.imdecode(np.frombuffer(image_path.read(), np.uint8), 1)
+    if image is None:
+        raise ValueError(f"Failed to read image from {image_path}")
     return image
 
 
