@@ -12,7 +12,6 @@ class DriverLicense:
     issue_date: Optional[datetime] = None
     expiration_date: Optional[datetime] = None
 
-    four_digit_code: Optional[int] = None
-    six_digit_code: Optional[int] = None
+    code: Optional[int] = None
 
     abode: Optional[str] = None

@@ -28,7 +28,7 @@
 			<xmin>250</xmin>
 			<ymin>65</ymin>
 			<xmax>1000</xmax>
-			<ymax>96</ymax>
+			<ymax>95</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -71,7 +71,7 @@
 		</bndbox>
 	</object>
 	<object>
-		<name>four_digit_code</name>
+		<name>code</name>
 		<type>int</type>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
@@ -79,20 +79,7 @@
 		<bndbox>
 			<xmin>245</xmin>
 			<ymin>260</ymin>
-			<xmax>300</xmax>
-			<ymax>280</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>six_digit_code</name>
-		<type>int</type>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>303</xmin>
-			<ymin>262</ymin>
-			<xmax>400</xmax>
+			<xmax>500</xmax>
 			<ymax>280</ymax>
 		</bndbox>
 	</object>

@@ -1,12 +1,31 @@
-from typing import List, Tuple
+import re
+from typing import List, Tuple, Optional, Callable
 
 from document_recognition.backends.base import TextAnnotations
 from document_recognition.entities.drive_license import DriverLicense
 from document_recognition.recognizers.base import BaseSyncRecognizer, ApiResponse, T
 
-
 from document_recognition.template import Template
-from document_recognition.utils import type_or_none
+from document_recognition.utils import type_or_none, int_or_none
+
+
+class DriverLicenseRecognizerByRegularExpression(BaseSyncRecognizer[DriverLicense]):
+    """Returns only a code of the driver license"""
+
+    def __init__(
+            self,
+            code_re: Optional[str] = None
+    ) -> None:
+        if code_re is None:
+            code_re = r"\d{2}([ \t]+)?\d{2}([ \t]+)?\d{6}"
+        self.code_re = re.compile(code_re)
+
+    def __call__(self, response: ApiResponse) -> T:
+        text_annotations = response.text
+        code = self.code_re.search(text_annotations)
+        return DriverLicense(
+            code=int_or_none(code.group())
+        )
 
 
 class DriverLicenseRecognizerByTemplate(BaseSyncRecognizer[DriverLicense]):
@@ -16,7 +35,7 @@ class DriverLicenseRecognizerByTemplate(BaseSyncRecognizer[DriverLicense]):
 
     @staticmethod
     def _find_average_coordinates(
-        annotations: List[TextAnnotations],
+            annotations: List[TextAnnotations],
     ) -> List[Tuple[str, float, float]]:
         text_infos = []
         for word in annotations:

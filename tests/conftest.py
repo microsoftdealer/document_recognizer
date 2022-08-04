@@ -65,7 +65,7 @@ def template() -> Template:
                 name="patronymic",
                 type="str",
                 coordinates=Coordinates(
-                    x_min=250.0, y_min=65.0, x_max=1000.0, y_max=96.0
+                    x_min=250.0, y_min=65.0, x_max=1000.0, y_max=95.0
                 ),
                 pose="Unspecified",
                 truncated=False,
@@ -102,20 +102,10 @@ def template() -> Template:
                 difficult=False,
             ),
             Data(
-                name="four_digit_code",
+                name="code",
                 type="int",
                 coordinates=Coordinates(
-                    x_min=245.0, y_min=260.0, x_max=300.0, y_max=280.0
-                ),
-                pose="Unspecified",
-                truncated=False,
-                difficult=False,
-            ),
-            Data(
-                name="six_digit_code",
-                type="int",
-                coordinates=Coordinates(
-                    x_min=303.0, y_min=262.0, x_max=400.0, y_max=280.0
+                    x_min=245.0, y_min=260.0, x_max=500.0, y_max=280.0
                 ),
                 pose="Unspecified",
                 truncated=False,
