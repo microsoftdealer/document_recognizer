@@ -9,7 +9,9 @@ from document_recognition.photo_pre_processors.synchronous.homography_cv2_ impor
 from document_recognition.recognizers.synchronous.driver_license_recognizer import (
     DriverLicenseRecognizerByTemplate,
 )
-from document_recognition.recognizers.synchronous.passport_recognizer import PassportRecognizerByRegularExpression
+from document_recognition.recognizers.synchronous.passport_recognizer import (
+    PassportRecognizerByRegularExpression,
+)
 from document_recognition.template import Template, Size, Data, Coordinates
 from tests.mocked_sync_client import MockedSyncDocumentRecognition
 
