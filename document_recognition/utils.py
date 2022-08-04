@@ -24,7 +24,7 @@ class to_async:
 def int_or_none(value: str) -> Optional[int]:
     try:
         return int(value)
-    except ValueError:
+    except (TypeError, ValueError):
         return None
 
 
