@@ -24,7 +24,7 @@ class DriverLicenseRecognizerByRegularExpression(BaseSyncRecognizer[DriverLicens
         text_annotations = response.text
         code = self.code_re.search(text_annotations)
         return DriverLicense(
-            code=int_or_none("".join(code.group().split()))
+            code=int_or_none("".join(code.group().split()) if code else None)
         )
 
 
