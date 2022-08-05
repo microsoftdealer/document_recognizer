@@ -9,6 +9,10 @@ from document_recognition.template import Template
 from document_recognition.utils import type_or_none, int_or_none
 
 
+def strip_english_letters_and_whitespaces(text: str) -> str:
+    return re.sub(r"[a-zA-Z]", "", text).strip()
+
+
 class DriverLicenseRecognizerByRegularExpression(BaseSyncRecognizer[DriverLicense]):
     """Returns only a code of the driver license"""
 
@@ -29,9 +33,16 @@ class DriverLicenseRecognizerByRegularExpression(BaseSyncRecognizer[DriverLicens
 
 
 class DriverLicenseRecognizerByTemplate(BaseSyncRecognizer[DriverLicense]):
-    def __init__(self, template: Template, *, separator: str = " ") -> None:
+    def __init__(
+            self,
+            template: Template,
+            *,
+            separator: str = " ",
+            strip_characters: Callable[[str], str] = strip_english_letters_and_whitespaces,
+    ) -> None:
         self.template = template
         self.separator = separator
+        self.strip_characters = strip_characters
 
     @staticmethod
     def _find_average_coordinates(
@@ -63,7 +74,7 @@ class DriverLicenseRecognizerByTemplate(BaseSyncRecognizer[DriverLicense]):
                 if coordinates.y_min <= y_center <= coordinates.y_max
             ]
             result_dict[name] = type_or_none(
-                self.separator.join(texts),
+                self.strip_characters(self.separator.join(texts)),
                 type_=template_object.type,
             )
 
