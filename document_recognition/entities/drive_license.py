@@ -15,3 +15,11 @@ class DriverLicense:
     code: Optional[int] = None
 
     abode: Optional[str] = None
+
+    def __post_init__(self):
+        if self.name:
+            self.name = self.name.title()
+        if self.patronymic:
+            self.patronymic = self.patronymic.title()
+        if self.abode:
+            self.abode = self.abode.title().strip(".")
