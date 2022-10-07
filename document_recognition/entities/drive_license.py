@@ -12,7 +12,7 @@ class DriverLicense:
     issue_date: Optional[datetime] = None
     expiration_date: Optional[datetime] = None
 
-    code: Optional[int] = None
+    code: Optional[str] = None
 
     abode: Optional[str] = None
 
