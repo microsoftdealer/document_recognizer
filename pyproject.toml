@@ -6,8 +6,8 @@ authors = ["Fom123 <gamemode1.459@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-google-cloud-vision = "2.7.3"
-opencv-python = "4.5.4.60"
+google-cloud-vision = "3.4.4"
+opencv-python = "4.8.1.78"
 numpy = "^1.23.1"
 
 
